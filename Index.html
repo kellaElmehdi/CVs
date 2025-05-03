@@ -728,6 +728,7 @@
                             <div class="strength-item">
                                 <div class="strength-title">Vision Stratégique & Opérationnelle</div>
                                 <div class="strength-description">Aptitude à aligner les initiatives digitales avec les objectifs business et les contraintes opérationnelles</div>
+                            </div>
                             <div class="strength-item">
                                 <div class="strength-title">Vision Stratégique & Opérationnelle</div>
                                 <div class="strength-description">Aptitude à aligner les initiatives digitales avec les objectifs business et les contraintes opérationnelles</div>
@@ -1207,52 +1208,53 @@
     </div>
 
     <script>
-        // Language Toggle
-        const frBtn = document.getElementById('fr-btn');
-        const enBtn = document.getElementById('en-btn');
-        const frContent = document.getElementById('fr-content');
-        const enContent = document.getElementById('en-content');
-        
-        frBtn.addEventListener('click', function() {
-            frContent.classList.add('active');
-            enContent.classList.remove('active');
-            frBtn.classList.add('active');
-            enBtn.classList.remove('active');
-        });
-        
-        enBtn.addEventListener('click', function() {
-            enContent.classList.add('active');
-            frContent.classList.remove('active');
-            enBtn.classList.add('active');
-            frBtn.classList.remove('active');
-        });
-        
-        // Role Selector
-        const roleSelect = document.getElementById('role-select');
-        
-        // French roles
-        const digitalSkillsFr = document.getElementById('digital-skills-fr');
-        const processSkillsFr = document.getElementById('process-skills-fr');
-        const projectSkillsFr = document.getElementById('project-skills-fr');
-        const maintenanceSkillsFr = document.getElementById('maintenance-skills-fr');
-        
-        const digitalStrengthsFr = document.getElementById('digital-strengths-fr');
-        const processStrengthsFr = document.getElementById('process-strengths-fr');
-        const projectStrengthsFr = document.getElementById('project-strengths-fr');
-        const maintenanceStrengthsFr = document.getElementById('maintenance-strengths-fr');
-        
-        // English roles
-        const digitalSkillsEn = document.getElementById('digital-skills-en');
-        const processSkillsEn = document.getElementById('process-skills-en');
-        const projectSkillsEn = document.getElementById('project-skills-en');
-        const maintenanceSkillsEn = document.getElementById('maintenance-skills-en');
-        
-        const digitalStrengthsEn = document.getElementById('digital-strengths-en');
-        const processStrengthsEn = document.getElementById('process-strengths-en');
-        const projectStrengthsEn = document.getElementById('project-strengths-en');
-        const maintenanceStrengthsEn = document.getElementById('maintenance-strengths-en');
-        
-        roleSelect.addEventListener('change', function() {
+document.addEventListener('DOMContentLoaded', function() {
+    // Language Toggle
+    const frBtn = document.getElementById('fr-btn');
+    const enBtn = document.getElementById('en-btn');
+    const frContent = document.getElementById('fr-content');
+    const enContent = document.getElementById('en-content');
+    
+    frBtn.addEventListener('click', function() {
+        frContent.classList.add('active');
+        enContent.classList.remove('active');
+        frBtn.classList.add('active');
+        enBtn.classList.remove('active');
+    });
+    
+    enBtn.addEventListener('click', function() {
+        enContent.classList.add('active');
+        frContent.classList.remove('active');
+        enBtn.classList.add('active');
+        frBtn.classList.remove('active');
+    });
+    
+    // Role Selector code (unchanged)
+    const roleSelect = document.getElementById('role-select');
+    
+    // French roles
+    const digitalSkillsFr = document.getElementById('digital-skills-fr');
+    const processSkillsFr = document.getElementById('process-skills-fr');
+    const projectSkillsFr = document.getElementById('project-skills-fr');
+    const maintenanceSkillsFr = document.getElementById('maintenance-skills-fr');
+    
+    const digitalStrengthsFr = document.getElementById('digital-strengths-fr');
+    const processStrengthsFr = document.getElementById('process-strengths-fr');
+    const projectStrengthsFr = document.getElementById('project-strengths-fr');
+    const maintenanceStrengthsFr = document.getElementById('maintenance-strengths-fr');
+    
+    // English roles
+    const digitalSkillsEn = document.getElementById('digital-skills-en');
+    const processSkillsEn = document.getElementById('process-skills-en');
+    const projectSkillsEn = document.getElementById('project-skills-en');
+    const maintenanceSkillsEn = document.getElementById('maintenance-skills-en');
+    
+    const digitalStrengthsEn = document.getElementById('digital-strengths-en');
+    const processStrengthsEn = document.getElementById('process-strengths-en');
+    const projectStrengthsEn = document.getElementById('project-strengths-en');
+    const maintenanceStrengthsEn = document.getElementById('maintenance-strengths-en');
+    
+    roleSelect.addEventListener('change', function() {
             // Remove active class from all skills
             const allFrSkills = [digitalSkillsFr, processSkillsFr, projectSkillsFr, maintenanceSkillsFr];
             const allFrStrengths = [digitalStrengthsFr, processStrengthsFr, projectStrengthsFr, maintenanceStrengthsFr];
@@ -1289,6 +1291,7 @@
                 maintenanceStrengthsEn.classList.add('active');
             }
         });
+    });
     </script>
 </body>
 </html>
