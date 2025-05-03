@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elmehdi KELLA - Ingénieur de Projet Industriel</title>
+    <style>
+        :root {
+            --primary-color: #0d3858;
+            --secondary-color: #1c70b8;
+            --accent-color: #65a4d9;
+            --light-bg: #f5f9fc;
+            --dark-text: #2b2b2b;
+            --light-text: #555;
+            --border-color: #e0e0e0;
+            --white: #fff;
+            --shadow: 0 3px 10px rgba(0,0,0,0.15);
+            --font-main: 'Segoe UI', Arial, sans-serif;
+            --section-spacing: 28px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--dark-text);
+            background-color: #f0f0f0;
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+        }
+
+        .cv-container {
+            max-width: 210mm;
+            min-height: 297mm;
+            margin: 20px auto;
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: relative;
+            padding: 35px;
+        }
+
+        @media print {
+            body {
+                background: none;
+                margin: 0;
+                padding: 0;
+            }
+            
+            .cv-container {
+                box-shadow: none;
+                margin: 0;
+                width: 100%;
+                max-width: 100%;
+            }
+            
+            .control-panel, .language-toggle, .role-selector {
+                display: none !important;
+            }
+            
+            .section {
+                break-inside: avoid;
+            }
+        }
+
+        /* Header Section */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 25px;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: var(--secondary-color);
+        }
+
+        .name-title {
+            flex: 2;
+        }
+
+        .name {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .title {
+            font-size: 20px;
+            color: var(--secondary-color);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: var(--light-text);
+            margin-bottom: 5px;
+        }
+
+        .contact-info {
+            flex: 1;
+            text-align: right;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: flex;
+            gap: 30px;
+        }
+
+        .left-column {
+            flex: 2;
+        }
+
+        .right-column {
+            flex: 1;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: var(--section-spacing);
+        }
+
+        .section-title {
+            font-size: 19px;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 6px;
+            margin-bottom: 16px;
+            font-weight: 700;
+            letter-spacing: 0.7px;
+            text-transform: uppercase;
+        }
+
+        /* Experience Items */
+        .experience-item, .education-item, .project-item {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .job-title, .degree {
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--dark-text);
+            margin-bottom: 3px;
+        }
+
+        .company-name, .school-name {
+            font-weight: 600;
+            color: var(--secondary-color);
+            font-size: 15px;
+            margin-bottom: 2px;
+        }
+
+        .date-location {
+            font-size: 14px;
+            color: var(--light-text);
+            margin: 4px 0;
+            font-style: italic;
+        }
+
+        .job-description ul, .project-description ul {
+            padding-left: 20px;
+            margin-top: 8px;
+        }
+
+        .job-description li, .project-description li {
+            margin-bottom: 5px;
+            font-size: 14px;
+            position: relative;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .skill-group {
+            margin-bottom: 12px;
+        }
+
+        .skill-category {
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+
+        .skills-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .skills-list li {
+            margin-bottom: 8px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+
+        .skills-list li::before {
+            content: "•";
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        /* Languages Section */
+        .language-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .language-name {
+            font-weight: 600;
+        }
+
+        .language-level {
+            color: var(--light-text);
+        }
+
+        /* Summary Section */
+        .summary {
+            background-color: var(--light-bg);
+            padding: 15px;
+            border-left: 4px solid var(--secondary-color);
+            margin-bottom: 25px;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        /* Projects Section */
+        .project-title {
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--dark-text);
+        }
+
+        .project-description {
+            font-size: 14px;
+            margin-top: 3px;
+        }
+
+        /* Achievements Section */
+        .achievement-item {
+            margin-bottom: 10px;
+            font-size: 14px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .achievement-item::before {
+            content: "★";
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+        }
+
+        /* Key Strengths Section */
+        .strength-item {
+            margin-bottom: 12px;
+        }
+
+        .strength-title {
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--dark-text);
+            margin-bottom: 2px;
+        }
+
+        .strength-description {
+            font-size: 14px;
+        }
+
+        /* Languages */
+        .language-content {
+            display: none;
+        }
+
+        .language-content.active {
+            display: block;
+        }
+
+        .role-content {
+            display: none;
+        }
+
+        .role-content.active {
+            display: block;
+        }
+
+        /* Control Panel */
+        .control-panel {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: var(--white);
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: var(--shadow);
+            z-index: 100;
+        }
+
+        .language-toggle, .role-selector {
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: var(--font-main);
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: var(--primary-color);
+        }
+
+        button.active {
+            background-color: var(--primary-color);
+        }
+
+        select {
+            padding: 8px;
+            width: 100%;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="control-panel">
+        <div class="language-toggle">
+            <button id="fr-btn" class="active">Français</button>
+            <button id="en-btn">English</button>
+        </div>
+        <div class="role-selector">
+            <select id="role-select">
+                <option value="digital">Manager de Transformation Digitale</option>
+                <option value="process">Ingénieur de Procédés Industriels</option>
+                <option value="project">Manager de Projets Industriels</option>
+                <option value="maintenance">Ingénieur Maintenance</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="cv-container">
+        <!-- FRANÇAIS -->
+        <div id="fr-content" class="language-content active">
+            <div class="header">
+                <div class="name-title">
+                    <div class="name">Elmehdi KELLA</div>
+                    <div class="title">Ingénieur de Projets Industriels & Transformation Digitale</div>
+                    <div class="subtitle">Double Diplôme d'Ingénieur - EILCO & ENSAM</div>
+                </div>
+                <div class="contact-info">
+                    <div>+33 652478613</div>
+                    <div>El.mehdi.kella@gmail.com</div>
+                    <div>Né le 12/08/2000 | Maroc</div>
+                    <div>Mobilité: Internationale</div>
+                </div>
+            </div>
+
+            <div class="summary">
+                Ingénieur de Projets Industriels bilingue avec expertise en gestion de projets complexes et transformation digitale. Spécialiste des solutions basées sur les données Microsoft Power Platform qui optimisent les processus industriels et réduisent les coûts opérationnels. Innovateur primé combinant une approche analytique rigoureuse avec une vision stratégique pour piloter des initiatives de transformation et d'excellence opérationnelle dans des environnements industriels exigeants.
+            </div>
+
+            <div class="main-content">
+                <div class="left-column">
+                    <!-- Expérience Professionnelle -->
+                    <div class="section">
+                        <div class="section-title">EXPÉRIENCE PROFESSIONNELLE</div>
+                        
+                        <div class="experience-item">
+                            <div class="job-title">Chef de Projet Industriel & Transformation Digitale</div>
+                            <div class="company-name">ArcelorMittal Centre de Service</div>
+                            <div class="date-location">Septembre 2024 - Présent | Contrainte</div>
+                            <div class="job-description">
+                                <ul>
+                                    <li>Pilotage de la transformation digitale industrielle via le déploiement de solutions Microsoft Power Platform, générant 15% d'amélioration de l'efficacité opérationnelle</li>
+                                    <li>Conception et implémentation d'un système de management de plans de prévention entièrement digitalisé, réduisant de 30% le temps de traitement administratif</li>
+                                    <li>Développement de workflows automatisés pour l'optimisation des processus de production, diminuant les délais de traitement de 25%</li>
+                                    <li>Management d'un portefeuille de projets complexes avec budgets cumulés de 250K€, atteignant 100% des objectifs dans les délais impartis</li>
+                                    <li>Mise en place d'un système d'analyse prédictive pour anticiper les défaillances équipements, réduisant les arrêts non planifiés de 20%</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="experience-item">
+                            <div class="job-title">Ingénieur R&D Procédés Industriels</div>
+                            <div class="company-name">Prysmian Group</div>
+                            <div class="date-location">Mai - Août 2024 | Calais, France</div>
+                            <div class="job-description">
+                                <ul>
+                                    <li>Optimisation des paramètres critiques du procédé APVD via analyse statistique multivariée, améliorant les performances de production de 12%</li>
+                                    <li>Développement d'une méthodologie d'analyse du cycle de vie pour la production de fibres optiques, identifiant des opportunités de réduction d'empreinte carbone de 8%</li>
+                                    <li>Conception d'un tableau de bord Power BI pour le suivi en temps réel des KPIs de performance du procédé APVD</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="experience-item">
+                            <div class="job-title">Ingénieur Méthodes & Amélioration Continue</div>
+                            <div class="company-name">Les Eaux Minérales Oulmés</div>
+                            <div class="date-location">Juin - Septembre 2023 | Casablanca, Maroc</div>
+                            <div class="job-description">
+                                <ul>
+                                    <li>Pilotage d'un projet DMAIC pour réduire la variabilité du poids des préformes, améliorant la conformité produit de 15%</li>
+                                    <li>Coordination d'une équipe pluridisciplinaire pour l'implémentation de solutions d'amélioration continue, générant 20% de réduction des déchets</li>
+                                    <li>Développement d'un système de suivi statistique des processus (SPC) pour le contrôle qualité en temps réel</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projets Académiques -->
+                    <div class="section">
+                        <div class="section-title">PROJETS INDUSTRIELS SIGNIFICATIFS</div>
+                        
+                        <div class="project-item">
+                            <div class="project-title">Système Intégré de Gestion des Plans de Prévention</div>
+                            <div class="project-description">
+                                <ul>
+                                    <li>Conception d'une architecture système complète basée sur Power Apps, Power Automate et SharePoint pour la gestion dématérialisée des plans de prévention</li>
+                                    <li>Intégration de fonctionnalités de signature électronique, de suivi en temps réel et d'analyse de conformité réglementaire</li>
+                                    <li>Implémentation d'un système d'alerte pour le suivi des habilitations et certifications des intervenants</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="project-item">
+                            <div class="project-title">Pixel Motion: Système de Maintenance Prédictive par Analyse Vidéo</div>
+                            <div class="project-description">
+                                <ul>
+                                    <li>Développement d'un algorithme de traitement d'image pour l'analyse vibratoire sans contact des équipements industriels</li>
+                                    <li>Conception d'une architecture d'IA pour la détection précoce des défaillances mécaniques via l'analyse de mouvements imperceptibles</li>
+                                    <li>Intégration avec systèmes GMAO pour la planification intelligente des interventions de maintenance</li>
+                                    <li><strong>Distinction:</strong> Premier Prix du concours "Techathon 2022" - Capgemini Engineering</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="project-item">
+                            <div class="project-title">Simulateur de Flux de Production pour Industrie 4.0</div>
+                            <div class="project-description">
+                                <ul>
+                                    <li>Conception d'un modèle de simulation digitale pour l'optimisation des flux de production utilisant la théorie des contraintes</li>
+                                    <li>Développement d'algorithmes d'ordonnancement adaptatif pour les lignes de production complexes</li>
+                                    <li>Intégration d'un tableau de bord pour la visualisation et l'analyse des goulots d'étranglement</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Réalisations -->
+                    <div class="section">
+                        <div class="section-title">RÉALISATIONS & DISTINCTIONS</div>
+                        <div class="achievement-item">Premier Prix - Hackathon INOV4.0 - OCP Group & Cluster Maintenance 4.0 (2021) - Solution innovante pour la maintenance prédictive</div>
+                        <div class="achievement-item">Premier Prix - "Techathon 2022" - Capgemini Engineering & Université Hassan II - Solution Pixel Motion pour l'analyse vibratoire</div>
+                        <div class="achievement-item">Finaliste - Challenge Innovation Industrielle - ENSAM (2023) - Système de traçabilité par blockchain pour chaîne d'approvisionnement</div>
+                    </div>
+                </div>
+
+                <div class="right-column">
+                    <!-- Formation -->
+                    <div class="section">
+                        <div class="section-title">FORMATION</div>
+                        
+                        <div class="education-item">
+                            <div class="degree">Double Diplôme d'Ingénieur</div>
+                            <div class="school-name">École d'Ingénieurs du Littoral Côte d'Opale (EILCO)</div>
+                            <div class="date-location">2023 - Présent | Calais, France</div>
+                            <div class="education-details">Spécialisation: Génie Industriel & Management de Projets Complexes</div>
+                        </div>
+                        
+                        <div class="education-item">
+                            <div class="degree">Diplôme d'Ingénieur</div>
+                            <div class="school-name">École Nationale Supérieure d'Arts et Métiers (ENSAM)</div>
+                            <div class="date-location">2019 - 2023 | Casablanca, Maroc</div>
+                            <div class="education-details">Spécialisation: Management des Systèmes Industriels & Amélioration Continue</div>
+                        </div>
+                    </div>
+
+                    <!-- Compétences -->
+                    <div class="section">
+                        <div class="section-title">COMPÉTENCES SPÉCIALISÉES</div>
+                        
+                        <!-- Compétences Manager de Transformation Digitale -->
+                        <div id="digital-skills-fr" class="role-content active">
+                            <div class="skills-container">
+                                <div class="skill-group">
+                                    <div class="skill-category">Transformation Digitale</div>
+                                    <ul class="skills-list">
+                                        <li>Power Platform (Expert)</li>
+                                        <li>Intégration IoT industrielle</li>
+                                        <li>Architectures système MES/ERP</li>
+                                        <li>Digitalisation processus industriels</li>
+                                    </ul>
+                                </div>
+                                <div class="skill-group">
+                                    <div class="skill-category">Management de Projets</div>
+                                    <ul class="skills-list">
+                                        <li>Certification PMI (en cours)</li>
+                                        <li>Méthodes Agile industrielles</li>
+                                        <li>Analyse de la valeur</li>
+                                        <li>Gestion multiprojet</li>
+                                    </ul>
+                                </div>
+                                <div class="skill-group">
+                                    <div class="skill-category">Business Intelligence</div>
+                                    <ul class="skills-list">
+                                        <li>Power BI (Expert)</li>
+                                        <li>Analyse prédictive</li>
+                                        <li>Modélisation statistique</li>
+                                        <li>Python pour data science</li>
+                                    </ul>
+                                </div>
+                                <div class="skill-group">
+                                    <div class="skill-category">Systèmes Industriels</div>
+                                    <ul class="skills-list">
+                                        <li>Lean Manufacturing</li>
+                                        <li>Stratégie Industry 4.0</li>
+                                        <li>Analyse de données industrielles</li>
+                                        <li>Conception de workflows</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Compétences Ingénieur Procédés -->
+                        <div id="process-skills-fr" class="role-content">
+                            <div class="skills-container">
+                                <div class="skill-group">
+                                    <div class="skill-category">Ingénierie de Procédés</div>
+                                    <ul class="skills-list">
+                                        <li>Optimization multi-objective</li>
+                                        <li>Modélisation de procédés</li>
+                                        <li>Simulation industrielle</li>
+                                        <li>Scale-up production</li>
+                                    </ul>
+                                </div>
+                                <div class="skill-group">
+                                    <div class="skill-category">Excellence Opérationnelle</div>
+                                    <ul class="skills-list">
+                                        <li>Six Sigma (Green Belt)</li>
+                                        <li>DMAIC/DMADV</li>
+                                        <li>Kaizen/5S</li>
+                                        <li>TQM</li>
+                                    </ul>
+                                </div>
+                                <div class="skill-group">
+                                    <div class="skill-category">Contrôle de Qualité</div>
+                                    <ul class="skills-list">
+                                        <li>SPC avancé</li>
+                                        <li>Analyse MSA</li>
+                                        <li>Minitab (Expert)</li>
+                                        <li>Tests de conformité</li>
+                                    </ul>
+                                </div>
+                                <div class="skill-group">
+                                    <div class="skill-category">Gestion de Production</div>
+                                    <ul class="skills-list">
+                                        <li>JIT/Kanban</li>
+                                        <li>OEE/TPM</li>
+                                        <li>Planification avancée</li>
+                                        <li>Ordonnancement</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Compétences Manager de Projets -->
+                        <div id="project-skills-fr" class="role-content">
+                            <div class="skills-container">
+                                <div class="skill-group">
+                                    <div class="skill-category">Management de Projets</div>
+                                    <ul class="skills-list">
+                                        <li>PMI/PRINCE2</li>
+                                        <li>Gestion de portefeuille</li>
+                                        <li>Méthodes Agile/SCRUM</li>
+                                        <li>MS Project (Expert)</li>
+                                    </ul>
+                                </div>
+                                <div class="skill-group">
+                                    <div class="skill-category">Analyse de Risques</div>
+                                    <ul class="skills-list">
+                                        <li>AMDEC/FMEA</li>
+                                        <li>Matrice de risques</li>
+                                        <li>Monte Carlo</li>
+                                        <li>Mitigation stratégique</li>
+                                    </ul>
+                                </div>
+                                <div class="skill-group">
+                                    <div class="skill-category">Gestion Financière</div>
+                                    <ul class="skills-list">
+                                        <li>ROI/TRI</li>
+                                        <li>Analyse coût-bénéfice</li>
+                                        <li>Budgétisation</li>
+                                        <li>Optimisation ressources</li>
+                                    </ul>
+                                </div>
+                                <div class="skill-group">
+                                    <div class="skill-category">Leadership</div>
+                                    <ul class="skills-list">
+                                        <li>Management d'équipe</li>
+                                        <li>Résolution de conflits</li>
+                                        <li>Communication stratégique</li>
+                                        <li>Conduite du changement</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Compétences Ingénieur Maintenance -->
+                        <div id="maintenance-skills-fr" class="role-content">
+                            <div class="skills-container">
+                                <div class="skill-group">
+                                    <div class="skill-category">Maintenance Prédictive</div>
+                                    <ul class="skills-list">
+                                        <li>Analyse vibratoire</li>
+                                        <li>Thermographie infrarouge</li>
+                                        <li>Analyse d'huile</li>
+                                        <li>Ultrason</li>
+                                    </ul>
+                                </div>
+                                <div class="skill-group">
+                                    <div class="skill-category">Fiabilité</div>
+                                    <ul class="skills-list">
+                                        <li>MTBF/MTTR</li>
+                                        <li>Analyse Weibull</li>
+                                        <li>RCM</li>
+                                        <li>Arbre de défaillance</li>
+                                    </ul>
+                                </div>
+                                <div class="skill-group">
+                                    <div class="skill-category">Systèmes GMAO</div>
+                                    <ul class="skills-list">
+                                        <li>SAP-PM</li>
+                                        <li>Maximo</li>
+                                        <li>Intégration IoT</li>
+                                        <li>KPI maintenance</li>
+                                    </ul>
+                                </div>
+                                <div class="skill-group">
+                                    <div class="skill-category">TPM</div>
+                                    <ul class="skills-list">
+                                        <li>Maintenance autonome</li>
+                                        <li>Piliers TPM</li>
+                                        <li>OEE</li>
+                                        <li>Kaizen</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Langues -->
+                    <div class="section">
+                        <div class="section-title">LANGUES</div>
+                        <div class="language-item">
+                            <span class="language-name">Français</span>
+                            <span class="language-level">C1 (Avancé)</span>
+                        </div>
+                        <div class="language-item">
+                            <span class="language-name">Anglais</span>
+                            <span class="language-level">C2 (Professionnel)</span>
+                        </div>
+                        <div class="language-item">
+                            <span class="language-name">Arabe</span>
+                            <span class="language-level">Natif</span>
+                        </div>
+                    </div>
+
+                    <!-- Certifications -->
+                    <div class="section">
+                        <div class="section-title">CERTIFICATIONS</div>
+                        <div class="certification-item">
+                            <div class="certification-name">• Microsoft Power Platform (PL-900)</div>
+                        </div>
+                        <div class="certification-item">
+                            <div class="certification-name">• Lean Six Sigma Green Belt</div>
+                        </div>
+                        <div class="certification-item">
+                            <div class="certification-name">• Data Analysis with Python</div>
+                        </div>
+                        <div class="certification-item">
+                            <div class="certification-name">• CAPM (en cours)</div>
+                        </div>
+                    </div>
+
+                    <!-- Points Forts -->
+                    <div class="section">
+                        <div class="section-title">POINTS FORTS</div>
+                        
+                        <!-- Points Forts Manager de Transformation Digitale -->
+                        <div id="digital-strengths-fr" class="role-content active">
+                            <div class="strength-item">
+                                <div class="strength-title">Leadership en Transformation Digitale</div>
+                                <div class="strength-description">Capacité à identifier et implémenter des solutions innovantes qui génèrent des gains d'efficacité mesurables</div>
+                            </div>
+                            <div class="strength-item">
+                                <div class="strength-title">Vision Stratégique & Opérationnelle</div>
+                                <div class="strength-description">Aptitude à aligner les initiatives digitales avec les objectifs business et les contraintes opérationnelles</div>
+                            <div class="strength-item">
+                                <div class="strength-title">Vision Stratégique & Opérationnelle</div>
+                                <div class="strength-description">Aptitude à aligner les initiatives digitales avec les objectifs business et les contraintes opérationnelles</div>
+                            </div>
+                            <div class="strength-item">
+                                <div class="strength-title">Expertise Technique Microsoft Power Platform</div>
+                                <div class="strength-description">Maîtrise approfondie de l'écosystème Power Apps, Power Automate et Power BI pour créer des solutions métier sur mesure</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Points Forts Ingénieur Procédés -->
+                        <div id="process-strengths-fr" class="role-content">
+                            <div class="strength-item">
+                                <div class="strength-title">Optimisation de Procédés Complexes</div>
+                                <div class="strength-description">Capacité à analyser et optimiser des procédés industriels multivariables pour maximiser l'efficience</div>
+                            </div>
+                            <div class="strength-item">
+                                <div class="strength-title">Approche Six Sigma</div>
+                                <div class="strength-description">Application rigoureuse des méthodologies DMAIC pour résoudre les problèmes complexes de production</div>
+                            </div>
+                            <div class="strength-item">
+                                <div class="strength-title">Analyse Statistique Avancée</div>
+                                <div class="strength-description">Expertise en analyse de données et modélisation statistique pour améliorer la qualité et la reproductibilité</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Points Forts Manager de Projets -->
+                        <div id="project-strengths-fr" class="role-content">
+                            <div class="strength-item">
+                                <div class="strength-title">Management Multi-Projets</div>
+                                <div class="strength-description">Capacité à piloter efficacement plusieurs projets complexes simultanément en environnement industriel</div>
+                            </div>
+                            <div class="strength-item">
+                                <div class="strength-title">Gestion des Parties Prenantes</div>
+                                <div class="strength-description">Aptitude à fédérer des équipes transversales et aligner les intérêts des différentes parties prenantes</div>
+                            </div>
+                            <div class="strength-item">
+                                <div class="strength-title">Analyse de la Valeur</div>
+                                <div class="strength-description">Expertise dans l'identification et la priorisation des initiatives à fort impact sur la performance globale</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Points Forts Ingénieur Maintenance -->
+                        <div id="maintenance-strengths-fr" class="role-content">
+                            <div class="strength-item">
+                                <div class="strength-title">Maintenance Prédictive Avancée</div>
+                                <div class="strength-description">Expertise en techniques d'analyse prédictive pour anticiper et prévenir les défaillances équipements</div>
+                            </div>
+                            <div class="strength-item">
+                                <div class="strength-title">Optimisation de la Fiabilité</div>
+                                <div class="strength-description">Maîtrise des méthodologies RCM pour concevoir des stratégies de maintenance optimisées</div>
+                            </div>
+                            <div class="strength-item">
+                                <div class="strength-title">Digitalisation de la Maintenance</div>
+                                <div class="strength-description">Capacité à implémenter des solutions IoT et analytics pour transformer les opérations de maintenance</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ENGLISH -->
+        <div id="en-content" class="language-content">
+            <div class="header">
+                <div class="name-title">
+                    <div class="name">Elmehdi KELLA</div>
+                    <div class="title">Industrial Project & Digital Transformation Engineer</div>
+                    <div class="subtitle">Dual Engineering Degree - EILCO & ENSAM</div>
+                </div>
+                <div class="contact-info">
+                    <div>+33 652478613</div>
+                    <div>El.mehdi.kella@gmail.com</div>
+                    <div>Born: 12/08/2000 | Morocco</div>
+                    <div>Mobility: International</div>
+                </div>
+            </div>
+
+            <div class="summary">
+                Bilingual Industrial Project Engineer with expertise in complex project management and digital transformation. Specialist in Microsoft Power Platform data-driven solutions that optimize industrial processes and reduce operational costs. Award-winning innovator combining rigorous analytical approach with strategic vision to drive transformation initiatives and operational excellence in demanding industrial environments.
+            </div>
+
+            <div class="main-content">
+                <div class="left-column">
+                    <!-- Professional Experience -->
+                    <div class="section">
+                        <div class="section-title">PROFESSIONAL EXPERIENCE</div>
+                        
+                        <div class="experience-item">
+                            <div class="job-title">Industrial Project & Digital Transformation Manager</div>
+                            <div class="company-name">ArcelorMittal Service Center</div>
+                            <div class="date-location">September 2024 - Present | Contrainte</div>
+                            <div class="job-description">
+                                <ul>
+                                    <li>Spearheaded industrial digital transformation through deployment of Microsoft Power Platform solutions, generating 15% improvement in operational efficiency</li>
+                                    <li>Designed and implemented a fully digitalized prevention plan management system, reducing administrative processing time by 30%</li>
+                                    <li>Developed automated workflows for production process optimization, decreasing processing times by 25%</li>
+                                    <li>Managed portfolio of complex projects with cumulative budgets of €250K, achieving 100% of objectives within set timeframes</li>
+                                    <li>Implemented predictive analysis system to anticipate equipment failures, reducing unplanned downtime by 20%</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="experience-item">
+                            <div class="job-title">R&D Process Engineer</div>
+                            <div class="company-name">Prysmian Group</div>
+                            <div class="date-location">May - August 2024 | Calais, France</div>
+                            <div class="job-description">
+                                <ul>
+                                    <li>Optimized critical APVD process parameters through multivariate statistical analysis, improving production performance by 12%</li>
+                                    <li>Developed life cycle assessment methodology for optical fiber production, identifying opportunities for 8% carbon footprint reduction</li>
+                                    <li>Designed Power BI dashboard for real-time monitoring of APVD process KPIs</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="experience-item">
+                            <div class="job-title">Methods & Continuous Improvement Engineer</div>
+                            <div class="company-name">Les Eaux Minérales Oulmés</div>
+                            <div class="date-location">June - September 2023 | Casablanca, Morocco</div>
+                            <div class="job-description">
+                                <ul>
+                                    <li>Led DMAIC project to reduce preform weight variability, improving product compliance by 15%</li>
+                                    <li>Coordinated cross-functional team for implementation of continuous improvement solutions, generating 20% waste reduction</li>
+                                    <li>Developed Statistical Process Control (SPC) system for real-time quality control</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Significant Projects -->
+                    <div class="section">
+                        <div class="section-title">SIGNIFICANT INDUSTRIAL PROJECTS</div>
+                        
+                        <div class="project-item">
+                            <div class="project-title">Integrated Prevention Plan Management System</div>
+                            <div class="project-description">
+                                <ul>
+                                    <li>Designed complete system architecture based on Power Apps, Power Automate and SharePoint for paperless prevention plan management</li>
+                                    <li>Integrated electronic signature, real-time tracking and regulatory compliance analysis functionalities</li>
+                                    <li>Implemented alert system for tracking contractor qualifications and certifications</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="project-item">
+                            <div class="project-title">Pixel Motion: Video Analysis-Based Predictive Maintenance System</div>
+                            <div class="project-description">
+                                <ul>
+                                    <li>Developed image processing algorithm for contact-free vibration analysis of industrial equipment</li>
+                                    <li>Designed AI architecture for early detection of mechanical failures through imperceptible motion analysis</li>
+                                    <li>Integrated with CMMS systems for intelligent maintenance intervention planning</li>
+                                    <li><strong>Distinction:</strong> First Prize winner "Techathon 2022" - Capgemini Engineering</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="project-item">
+                            <div class="project-title">Production Flow Simulator for Industry 4.0</div>
+                            <div class="project-description">
+                                <ul>
+                                    <li>Designed digital simulation model for production flow optimization using theory of constraints</li>
+                                    <li>Developed adaptive scheduling algorithms for complex production lines</li>
+                                    <li>Integrated dashboard for bottleneck visualization and analysis</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Achievements -->
+                    <div class="section">
+                        <div class="section-title">ACHIEVEMENTS & AWARDS</div>
+                        <div class="achievement-item">First Prize - INOV4.0 Hackathon - OCP Group & Maintenance 4.0 Cluster (2021) - Innovative predictive maintenance solution</div>
+                        <div class="achievement-item">First Prize - "Techathon 2022" - Capgemini Engineering & Hassan II University - Pixel Motion vibration analysis solution</div>
+                        <div class="achievement-item">Finalist - Industrial Innovation Challenge - ENSAM (2023) - Blockchain-based traceability system for supply chain</div>
+                    </div>
+                </div>
+
+                <div class="right-column">
+                    <!-- Education -->
+                    <div class="section">
+                        <div class="section-title">EDUCATION</div>
+                        
+                        <div class="education-item">
+                            <div class="degree">Dual Engineering Degree</div>
+                            <div class="school-name">École d'Ingénieurs du Littoral Côte d'Opale (EILCO)</div>
+                            <div class="date-location">2023 - Present | Calais, France</div>
+                            <div class="education-details">Specialization: Industrial Engineering & Complex Project Management</div>
+                        </div>
+                        
+                        <div class="education-item">
+                            <div class="degree">Engineering Degree</div>
+                            <div class="school-name">National School of Arts and Crafts (ENSAM)</div>
+                            <div class="date-location">2019 - 2023 | Casablanca, Morocco</div>
+                            <div class="education-details">Specialization: Industrial Systems Management & Continuous Improvement</div>
+                        </div>
+                    </div>
+
+                    <!-- Skills -->
+                    <div class="section">
+                        <div class="section-title">SPECIALIZED SKILLS</div>
+                        
+                        <!-- Digital Transformation Manager Skills -->
+                        <div id="digital-skills-en" class="role-content active">
+                            <div class="skills-container">
+                                <div class="skill-group">
+                                    <div class="skill-category">Digital Transformation</div>
+                                    <ul class="skills-list">
+                                        <li>Power Platform (Expert)</li>
+                                        <li>Industrial IoT integration</li>
+                                        <li>MES/ERP system architectures</li>
+                                        <li>Industrial process digitalization</li>
+                                    </ul>
+                                </div>
+                                <div class="skill-group">
+                                    <div class="skill-category">Project Management</div>
+                                    <ul class="skills-list">
+                                        <li>PMI Certification (in progress)</li>
+                                        <li>Industrial Agile methods</li>
+                                        <li>Value analysis</li>
+                                        <li>Multi-project management</li>
+                                    </ul>
+                                </div>
+                                <div class="skill-group">
+                                    <div class="skill-category">Business Intelligence</div>
+                                    <ul class="skills-list">
+                                        <li>Power BI (Expert)</li>
+                                        <li>Predictive analytics</li>
+                                        <li>Statistical modeling</li>
+                                        <li>Python for data science</li>
+                                    </ul>
+                                </div>
+                                <div class="skill-group">
+                                    <div class="skill-category">Industrial Systems</div>
+                                    <ul class="skills-list">
+                                        <li>Lean Manufacturing</li>
+                                        <li>Industry 4.0 strategy</li>
+                                        <li>Industrial data analysis</li>
+                                        <li>Workflow design</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Process Engineer Skills -->
+                        <div id="process-skills-en" class="role-content">
+                            <div class="skills-container">
+                                <div class="skill-group">
+                                    <div class="skill-category">Process Engineering</div>
+                                    <ul class="skills-list">
+                                        <li>Multi-objective optimization</li>
+                                        <li>Process modeling</li>
+                                        <li>Industrial simulation</li>
+                                        <li>Production scale-up</li>
+                                    </ul>
+                                </div>
+                                <div class="skill-group">
+                                    <div class="skill-category">Operational Excellence</div>
+                                    <ul class="skills-list">
+                                        <li>Six Sigma (Green Belt)</li>
+                                        <li>DMAIC/DMADV</li>
+                                        <li>Kaizen/5S</li>
+                                        <li>TQM</li>
+                                    </ul>
+                                </div>
+                                <div class="skill-group">
+                                    <div class="skill-category">Quality Control</div>
+                                    <ul class="skills-list">
+                                        <li>Advanced SPC</li>
+                                        <li>MSA analysis</li>
+                                        <li>Minitab (Expert)</li>
+                                        <li>Conformity testing</li>
+                                    </ul>
+                                </div>
+                                <div class="skill-group">
+                                    <div class="skill-category">Production Management</div>
+                                    <ul class="skills-list">
+                                        <li>JIT/Kanban</li>
+                                        <li>OEE/TPM</li>
+                                        <li>Advanced planning</li>
+                                        <li>Scheduling</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Project Manager Skills -->
+                        <div id="project-skills-en" class="role-content">
+                            <div class="skills-container">
+                                <div class="skill-group">
+                                    <div class="skill-category">Project Management</div>
+                                    <ul class="skills-list">
+                                        <li>PMI/PRINCE2</li>
+                                        <li>Portfolio management</li>
+                                        <li>Agile/SCRUM methods</li>
+                                        <li>MS Project (Expert)</li>
+                                    </ul>
+                                </div>
+                                <div class="skill-group">
+                                    <div class="skill-category">Risk Analysis</div>
+                                    <ul class="skills-list">
+                                        <li>FMEA</li>
+                                        <li>Risk matrix</li>
+                                        <li>Monte Carlo</li>
+                                        <li>Strategic mitigation</li>
+                                    </ul>
+                                </div>
+                                <div class="skill-group">
+                                    <div class="skill-category">Financial Management</div>
+                                    <ul class="skills-list">
+                                        <li>ROI/IRR</li>
+                                        <li>Cost-benefit analysis</li>
+                                        <li>Budgeting</li>
+                                        <li>Resource optimization</li>
+                                    </ul>
+                                </div>
+                                <div class="skill-group">
+                                    <div class="skill-category">Leadership</div>
+                                    <ul class="skills-list">
+                                        <li>Team management</li>
+                                        <li>Conflict resolution</li>
+                                        <li>Strategic communication</li>
+                                        <li>Change management</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Maintenance Engineer Skills -->
+                        <div id="maintenance-skills-en" class="role-content">
+                            <div class="skills-container">
+                                <div class="skill-group">
+                                    <div class="skill-category">Predictive Maintenance</div>
+                                    <ul class="skills-list">
+                                        <li>Vibration analysis</li>
+                                        <li>Infrared thermography</li>
+                                        <li>Oil analysis</li>
+                                        <li>Ultrasound</li>
+                                    </ul>
+                                </div>
+                                <div class="skill-group">
+                                    <div class="skill-category">Reliability</div>
+                                    <ul class="skills-list">
+                                        <li>MTBF/MTTR</li>
+                                        <li>Weibull analysis</li>
+                                        <li>RCM</li>
+                                        <li>Fault tree analysis</li>
+                                    </ul>
+                                </div>
+                                <div class="skill-group">
+                                    <div class="skill-category">CMMS Systems</div>
+                                    <ul class="skills-list">
+                                        <li>SAP-PM</li>
+                                        <li>Maximo</li>
+                                        <li>IoT integration</li>
+                                        <li>Maintenance KPIs</li>
+                                    </ul>
+                                </div>
+                                <div class="skill-group">
+                                    <div class="skill-category">TPM</div>
+                                    <ul class="skills-list">
+                                        <li>Autonomous maintenance</li>
+                                        <li>TPM pillars</li>
+                                        <li>OEE</li>
+                                        <li>Kaizen</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Languages -->
+                    <div class="section">
+                        <div class="section-title">LANGUAGES</div>
+                        <div class="language-item">
+                            <span class="language-name">French</span>
+                            <span class="language-level">C1 (Advanced)</span>
+                        </div>
+                        <div class="language-item">
+                            <span class="language-name">English</span>
+                            <span class="language-level">C2 (Professional)</span>
+                        </div>
+                        <div class="language-item">
+                            <span class="language-name">Arabic</span>
+                            <span class="language-level">Native</span>
+                        </div>
+                    </div>
+
+                    <!-- Certifications -->
+                    <div class="section">
+                        <div class="section-title">CERTIFICATIONS</div>
+                        <div class="certification-item">
+                            <div class="certification-name">• Microsoft Power Platform (PL-900)</div>
+                        </div>
+                        <div class="certification-item">
+                            <div class="certification-name">• Lean Six Sigma Green Belt</div>
+                        </div>
+                        <div class="certification-item">
+                            <div class="certification-name">• Data Analysis with Python</div>
+                        </div>
+                        <div class="certification-item">
+                            <div class="certification-name">• CAPM (in progress)</div>
+                        </div>
+                    </div>
+
+                    <!-- Key Strengths -->
+                    <div class="section">
+                        <div class="section-title">KEY STRENGTHS</div>
+                        
+                        <!-- Digital Transformation Manager Strengths -->
+                        <div id="digital-strengths-en" class="role-content active">
+                            <div class="strength-item">
+                                <div class="strength-title">Digital Transformation Leadership</div>
+                                <div class="strength-description">Ability to identify and implement innovative solutions that generate measurable efficiency gains</div>
+                            </div>
+                            <div class="strength-item">
+                                <div class="strength-title">Strategic & Operational Vision</div>
+                                <div class="strength-description">Aptitude to align digital initiatives with business objectives and operational constraints</div>
+                            </div>
+                            <div class="strength-item">
+                                <div class="strength-title">Microsoft Power Platform Technical Expertise</div>
+                                <div class="strength-description">Deep mastery of Power Apps, Power Automate and Power BI ecosystem to create tailored business solutions</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Process Engineer Strengths -->
+                        <div id="process-strengths-en" class="role-content">
+                            <div class="strength-item">
+                                <div class="strength-title">Complex Process Optimization</div>
+                                <div class="strength-description">Ability to analyze and optimize multivariable industrial processes to maximize efficiency</div>
+                            </div>
+                            <div class="strength-item">
+                                <div class="strength-title">Six Sigma Approach</div>
+                                <div class="strength-description">Rigorous application of DMAIC methodologies to solve complex production problems</div>
+                            </div>
+                            <div class="strength-item">
+                                <div class="strength-title">Advanced Statistical Analysis</div>
+                                <div class="strength-description">Expertise in data analysis and statistical modeling to improve quality and reproducibility</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Project Manager Strengths -->
+                        <div id="project-strengths-en" class="role-content">
+                            <div class="strength-item">
+                                <div class="strength-title">Multi-Project Management</div>
+                                <div class="strength-description">Ability to effectively pilot multiple complex projects simultaneously in industrial environments</div>
+                            </div>
+                            <div class="strength-item">
+                                <div class="strength-title">Stakeholder Management</div>
+                                <div class="strength-description">Aptitude to unite cross-functional teams and align interests of different stakeholders</div>
+                            </div>
+                            <div class="strength-item">
+                                <div class="strength-title">Value Analysis</div>
+                                <div class="strength-description">Expertise in identifying and prioritizing high-impact initiatives on overall performance</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Maintenance Engineer Strengths -->
+                        <div id="maintenance-strengths-en" class="role-content">
+                            <div class="strength-item">
+                                <div class="strength-title">Advanced Predictive Maintenance</div>
+                                <div class="strength-description">Expertise in predictive analysis techniques to anticipate and prevent equipment failures</div>
+                            </div>
+                            <div class="strength-item">
+                                <div class="strength-title">Reliability Optimization</div>
+                                <div class="strength-description">Mastery of RCM methodologies to design optimized maintenance strategies</div>
+                            </div>
+                            <div class="strength-item">
+                                <div class="strength-title">Maintenance Digitalization</div>
+                                <div class="strength-description">Ability to implement IoT and analytics solutions to transform maintenance operations</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Language Toggle
+        const frBtn = document.getElementById('fr-btn');
+        const enBtn = document.getElementById('en-btn');
+        const frContent = document.getElementById('fr-content');
+        const enContent = document.getElementById('en-content');
+        
+        frBtn.addEventListener('click', function() {
+            frContent.classList.add('active');
+            enContent.classList.remove('active');
+            frBtn.classList.add('active');
+            enBtn.classList.remove('active');
+        });
+        
+        enBtn.addEventListener('click', function() {
+            enContent.classList.add('active');
+            frContent.classList.remove('active');
+            enBtn.classList.add('active');
+            frBtn.classList.remove('active');
+        });
+        
+        // Role Selector
+        const roleSelect = document.getElementById('role-select');
+        
+        // French roles
+        const digitalSkillsFr = document.getElementById('digital-skills-fr');
+        const processSkillsFr = document.getElementById('process-skills-fr');
+        const projectSkillsFr = document.getElementById('project-skills-fr');
+        const maintenanceSkillsFr = document.getElementById('maintenance-skills-fr');
+        
+        const digitalStrengthsFr = document.getElementById('digital-strengths-fr');
+        const processStrengthsFr = document.getElementById('process-strengths-fr');
+        const projectStrengthsFr = document.getElementById('project-strengths-fr');
+        const maintenanceStrengthsFr = document.getElementById('maintenance-strengths-fr');
+        
+        // English roles
+        const digitalSkillsEn = document.getElementById('digital-skills-en');
+        const processSkillsEn = document.getElementById('process-skills-en');
+        const projectSkillsEn = document.getElementById('project-skills-en');
+        const maintenanceSkillsEn = document.getElementById('maintenance-skills-en');
+        
+        const digitalStrengthsEn = document.getElementById('digital-strengths-en');
+        const processStrengthsEn = document.getElementById('process-strengths-en');
+        const projectStrengthsEn = document.getElementById('project-strengths-en');
+        const maintenanceStrengthsEn = document.getElementById('maintenance-strengths-en');
+        
+        roleSelect.addEventListener('change', function() {
+            // Remove active class from all skills
+            const allFrSkills = [digitalSkillsFr, processSkillsFr, projectSkillsFr, maintenanceSkillsFr];
+            const allFrStrengths = [digitalStrengthsFr, processStrengthsFr, projectStrengthsFr, maintenanceStrengthsFr];
+            const allEnSkills = [digitalSkillsEn, processSkillsEn, projectSkillsEn, maintenanceSkillsEn];
+            const allEnStrengths = [digitalStrengthsEn, processStrengthsEn, projectStrengthsEn, maintenanceStrengthsEn];
+            
+            allFrSkills.forEach(elem => elem.classList.remove('active'));
+            allFrStrengths.forEach(elem => elem.classList.remove('active'));
+            allEnSkills.forEach(elem => elem.classList.remove('active'));
+            allEnStrengths.forEach(elem => elem.classList.remove('active'));
+            
+            // Add active class based on selection
+            const selectedRole = roleSelect.value;
+            
+            if (selectedRole === 'digital') {
+                digitalSkillsFr.classList.add('active');
+                digitalStrengthsFr.classList.add('active');
+                digitalSkillsEn.classList.add('active');
+                digitalStrengthsEn.classList.add('active');
+            } else if (selectedRole === 'process') {
+                processSkillsFr.classList.add('active');
+                processStrengthsFr.classList.add('active');
+                processSkillsEn.classList.add('active');
+                processStrengthsEn.classList.add('active');
+            } else if (selectedRole === 'project') {
+                projectSkillsFr.classList.add('active');
+                projectStrengthsFr.classList.add('active');
+                projectSkillsEn.classList.add('active');
+                projectStrengthsEn.classList.add('active');
+            } else if (selectedRole === 'maintenance') {
+                maintenanceSkillsFr.classList.add('active');
+                maintenanceStrengthsFr.classList.add('active');
+                maintenanceSkillsEn.classList.add('active');
+                maintenanceStrengthsEn.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
